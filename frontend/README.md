@@ -1,16 +1,136 @@
-# React + Vite
+# Rental Access Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack rental property management platform that connects landlords and tenants through a single web application.
 
-Currently, two official plugins are available:
+The platform allows landlords to create and manage rental property listings, upload property images, select a profile image, and manage tenant applications. Tenants can browse available properties and submit rental applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+##  Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Rental Access is a full-stack web application designed to simplify the rental process for both landlords and tenants.
 
-## Expanding the ESLint configuration
+### Tenants can:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Create an account
+- Log in securely
+- Browse available rental properties
+- View property information and images
+- Submit rental applications
+- View their application status
+
+### Landlords can:
+
+- Create an account as a landlord
+- Log in securely
+- Create rental property listings
+- Upload multiple property images
+- Select a profile image for a property
+- View their listed properties
+- Delete their own properties
+- View tenant applications
+- Approve or reject applications
+
+The application uses a role-based system to ensure that tenants and landlords have access to the appropriate functionality.
+
+---
+
+##  Technologies Used
+
+### Frontend
+
+- React
+- Vite
+- React Router
+- Axios
+- Tailwind CSS
+- JavaScript
+- HTML
+- CSS
+
+### Backend
+
+- Python
+- FastAPI
+- SQLAlchemy
+- Pydantic
+- Uvicorn
+- JWT Authentication
+
+### Database
+
+- PostgreSQL
+- pgAdmin
+
+### Development Tools
+
+- Git
+- GitHub
+- VS Code
+- Postman / Swagger UI
+
+---
+
+##  Project Architecture
+
+```text
+rental-access-platform/
+│
+├── backend/
+│   ├── app/
+│   │   ├── core/
+│   │   │   ├── database.py
+│   │   │   └── security.py
+│   │   │
+│   │   ├── models/
+│   │   │   ├── user.py
+│   │   │   ├── property.py
+│   │   │   ├── property_image.py
+│   │   │   └── application.py
+│   │   │
+│   │   ├── routes/
+│   │   │   ├── auth.py
+│   │   │   ├── property.py
+│   │   │   └── application.py
+│   │   │
+│   │   ├── schemas/
+│   │   │   └── property.py
+│   │   │
+│   │   └── main.py
+│   │
+│   ├── uploads/
+│   │   ├── properties/
+│   │   └── ...
+│   │
+│   ├── .env
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   │   └── axios.js
+│   │   │
+│   │   ├── assets/
+│   │   │
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx
+│   │   │   └── PropertyCard.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── Properties.jsx
+│   │   │   ├── CreateProperty.jsx
+│   │   │   ├── LandlordDashboard.jsx
+│   │   │   ├── LandlordApplications.jsx
+│   │   │   └── MyApplications.jsx
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md
